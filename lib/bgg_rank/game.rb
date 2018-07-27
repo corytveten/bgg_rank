@@ -2,8 +2,8 @@ class BggRank::Game
   attr_accessor :name, :year, :designer, :url
 
   def self.all
-    puts "1. Gloomhaven
-    2. Pandemic Legacy".gsub /^\s*/, ''
+    #puts "1. Gloomhaven
+    #2. Pandemic Legacy".gsub /^\s*/, ''
 
     game_1 = self.new
     game_1.name = "Gloomhaven"

@@ -9,7 +9,9 @@ class BggRank::CLI
   def list_games
     puts "BGG 100"
     @games = BggRank::Game.all
-
+    @games.each.with_index(1) do |game, i|
+      puts "#{i}. #{game.name} (#{game.year}) - #{game.designer}"
+    end
   end
 
   def menu
@@ -19,14 +21,11 @@ class BggRank::CLI
       puts "***Type exit to leave***"
       puts "***Type menu for menu***"
       input = gets.strip.downcase
-      case input
-      when "1"
-        puts "more info on Gloomhaven."
-      when "2"
-        puts "more info on Pandemic Legacy"
-      when "menu"
+
+      if input.to_i > 0
+        puts @games[input.to_i-1]
+      elsif input == "list"
         list_games
-      else
         puts "Not sure what you want."
       end
     end
