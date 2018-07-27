@@ -8,16 +8,16 @@ class BggRank::CLI
 
   def list_games
     puts "BGG 100"
-    puts "1. Gloomhaven
-    2. Pandemic Legacy".gsub /^\s*/, ''
+    @games = BggRank::Game.all
+
   end
 
   def menu
     input = nil
     while input != "exit"
-      puts "Enter the number of the game for more info."
-      puts "Type exit to leave."
-      puts "Type menu for menu."
+      puts "***Enter the number of the game for more info***"
+      puts "***Type exit to leave***"
+      puts "***Type menu for menu***"
       input = gets.strip.downcase
       case input
       when "1"
