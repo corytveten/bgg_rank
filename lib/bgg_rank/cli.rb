@@ -8,9 +8,9 @@ class BggRank::CLI
 
   def list_games
     puts "BGG 100"
-    @games = BggRank::Game.all
+    @games = BggRank::Game.scrape_games
     @games.each.with_index(1) do |game, i|
-      puts "#{i}. #{game.name} (#{game.year}) - #{game.designer}"
+      puts "#{i}. #{game.name}"
     end
   end
 
@@ -23,7 +23,8 @@ class BggRank::CLI
       input = gets.strip.downcase
 
       if input.to_i > 0
-        puts @games[input.to_i-1]
+        a_game = @games[input.to_i-1]
+        puts "#{a_game.name} (#{a_game.year}) - #{a_game.designer}"
       elsif input == "list"
         list_games
         puts "Not sure what you want."

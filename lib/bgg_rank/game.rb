@@ -1,23 +1,28 @@
 class BggRank::Game
   attr_accessor :name, :year, :designer, :url
 
-  def self.all
-    #puts "1. Gloomhaven
-    #2. Pandemic Legacy".gsub /^\s*/, ''
+  def self.scrape_games
+    games = []
 
-    game_1 = self.new
-    game_1.name = "Gloomhaven"
-    game_1.year = "2017"
-    game_1.designer = "Isaac Childress"
-    game_1.url = "https://boardgamegeek.com"
+    games << self.scrape_bgg
 
-    game_2 = self.new
-    game_2.name = "Pandemic Legacy"
-    game_2.year = "2015"
-    game_2.designer = "Matt Leacock"
-    game_2.url = "https://boardgamegeek.com"
+  #  game_1 = self.new
+  #  game_1.name = "Gloomhaven"
+  #  game_1.year = "2017"
+  #  game_1.designer = "Isaac Childress"
+  #  game_1.url = "https://boardgamegeek.com"
 
-    [game_1, game_2]
+  #  game_2 = self.new
+#    game_2.name = "Pandemic Legacy"
+  #  game_2.year = "2015"
+  #  game_2.designer = "Matt Leacock"
+  #  game_2.url = "https://boardgamegeek.com"
+
+  games
   end
 
+  def self.scrape_bgg
+    doc = Nokogiri::HTML(open("https://boardgamegeek.com/browse/boardgame"))
+    binding.pry
+  end
 end
