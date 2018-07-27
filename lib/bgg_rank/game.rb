@@ -18,11 +18,18 @@ class BggRank::Game
   #  game_2.designer = "Matt Leacock"
   #  game_2.url = "https://boardgamegeek.com"
 
-  games
+    games
   end
 
   def self.scrape_bgg
     doc = Nokogiri::HTML(open("https://boardgamegeek.com/browse/boardgame"))
-    binding.pry
+
+    #binding.pry
+    game = self.new
+    game.name = doc.css("#results_objectname1 a").text
+    game.year = doc.css("#results_objectname1 span").text
+    game.designer = "Unknown"
+    game.url = "Unknown"
+    game
   end
 end

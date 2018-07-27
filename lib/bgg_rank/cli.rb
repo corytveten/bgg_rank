@@ -24,7 +24,7 @@ class BggRank::CLI
 
       if input.to_i > 0
         a_game = @games[input.to_i-1]
-        puts "#{a_game.name} (#{a_game.year}) - #{a_game.designer}"
+        puts "#{a_game.name} #{a_game.year} - #{a_game.designer}"
       elsif input == "list"
         list_games
         puts "Not sure what you want."
