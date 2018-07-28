@@ -8,9 +8,9 @@ class BggRank::CLI
 
   def list_games
     puts "BGG 100"
-    @games = BggRank::Game.scrape_games
+    @games = BggRank::Game.scrape_bgg
     @games.each.with_index(1) do |game, i|
-      puts "#{i}. #{game.name}"
+      puts "#{i}. #{game}"
     end
   end
 
