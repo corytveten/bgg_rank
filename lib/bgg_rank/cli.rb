@@ -8,10 +8,22 @@ class BggRank::CLI
 
   def list_games
     puts "BGG 100"
-    @games = BggRank::Game.scrape_bgg
-    @games.each.with_index(1) do |game, i|
-      puts "#{i}. #{game}"
+    puts ""
+    #@games = BggRank::Scraper.scrape_bgg
+    BggRank::Scraper.scrape_bgg
+
+    #binding.pry
+    games = BggRank::Game.all
+    games.each.with_index(1) do |game, index|
+      puts "#{index}. #{game.name}"
     end
+    #@games.each.with_index(1) do |game, i|
+      #puts "#{i}. #{game}"
+    #end
+    #@games = BggRank::Game.scrape_bgg
+    #@games.each.with_index(1) do |game, i|
+    #  puts "#{i}. #{game}"
+    #end
   end
 
   def menu

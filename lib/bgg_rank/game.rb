@@ -1,6 +1,17 @@
 class BggRank::Game
   attr_accessor :name, :year, :designer, :url
 
+  @@all = []
+
+  def initialize(name, year)
+    @name = name
+    @year = year
+    @@all << self
+  end
+
+  def self.all
+    @@all
+  end
 #  def self.scrape_games
 #    games = []
 
@@ -21,6 +32,7 @@ class BggRank::Game
 #    games
 #  end
 
+=begin
   def self.scrape_bgg
     games = []
     doc = Nokogiri::HTML(open("https://boardgamegeek.com/browse/boardgame"))
@@ -28,15 +40,21 @@ class BggRank::Game
 
     doc.css('.collection_objectname a')[0..9].map do |game|
 
-    #game = self.new
-    #game.name = doc.css(".collection_objectname a").text.strip
-    #game.year = doc.css("#results_objectname1 span").text.strip
-    #game.designer = "Unknown"
-    #game.url = "Unknown"
-    #binding.pry
-    game = game.text.strip
+      name = game.css('.collection_objectname a').text.strip
+      year = game.css('.collection_objectname span').text.strip
+      designer = "unknown"
+      url = 'http://boardgamegeek.com'
+      game = self.new
+#    game = self.new
+#    game.name = doc.css(".collection_objectname a").text.strip
+#    game.year = doc.css("#results_objectname1 span").text.strip
+#    game.designer = "Unknown"
+#    binding.pry
+#    game = game.text.strip
     games << game
     end
+    binding.pry
     games
   end
+=end
 end
