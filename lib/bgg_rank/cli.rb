@@ -13,8 +13,8 @@ class BggRank::CLI
     BggRank::Scraper.scrape_bgg
 
     #binding.pry
-    games = BggRank::Game.all
-    games.each.with_index(1) do |game, index|
+    @games = BggRank::Game.all
+    @games.each.with_index(1) do |game, index|
       puts "#{index}. #{game.name}"
     end
     #@games.each.with_index(1) do |game, i|
