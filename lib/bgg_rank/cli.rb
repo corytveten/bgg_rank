@@ -13,8 +13,8 @@ class BggRank::CLI
     BggRank::Scraper.scrape_bgg
 
     #binding.pry
-    @games = BggRank::Game.all
-    @games.each.with_index(1) do |game, index|
+    games = BggRank::Game.all
+    games.each.with_index(1) do |game, index|
       puts "#{index}. #{game.name}"
     end
     #@games.each.with_index(1) do |game, i|
@@ -27,6 +27,10 @@ class BggRank::CLI
   end
 
   def menu
+
+  end
+
+  def menu
     input = nil
     while input != "exit"
       puts "***Enter the number of the game for more info***"
@@ -35,8 +39,13 @@ class BggRank::CLI
       input = gets.strip.downcase
 
       if input.to_i > 0
-        a_game = @games[input.to_i-1]
-        puts "#{a_game.name} #{a_game.year} - #{a_game.designer}"
+        a_game = BggRank::Game.all[input.to_i-1]
+        #binding.pry
+        BggRank::Scraper.scrape_details(a_game)
+
+        puts "Title: #{a_game.name}"
+        puts "Publication: #{a_game.year}"
+        puts "Designer(s): #{a_game.designer}"
       elsif input == "list"
         list_games
         puts "Not sure what you want."

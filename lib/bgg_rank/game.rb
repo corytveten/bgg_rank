@@ -3,9 +3,9 @@ class BggRank::Game
 
   @@all = []
 
-  def initialize(name, year)
+  def initialize(name, url)
     @name = name
-    @year = year
+    @url = url
     @@all << self
   end
 
@@ -17,21 +17,9 @@ class BggRank::Game
 
 #    games << self.scrape_bgg
 
-  #  game_1 = self.new
-  #  game_1.name = "Gloomhaven"
-  #  game_1.year = "2017"
-  #  game_1.designer = "Isaac Childress"
-  #  game_1.url = "https://boardgamegeek.com"
-
-  #  game_2 = self.new
-#    game_2.name = "Pandemic Legacy"
-  #  game_2.year = "2015"
-  #  game_2.designer = "Matt Leacock"
-  #  game_2.url = "https://boardgamegeek.com"
-    #binding.pry
-#    games
 #  end
 
+end
 =begin
   def self.scrape_bgg
     games = []
@@ -57,4 +45,3 @@ class BggRank::Game
     games
   end
 =end
-end
