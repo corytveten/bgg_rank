@@ -45,7 +45,7 @@ class BggRank::CLI
 
         puts "Title: #{a_game.name}"
         puts "Publication: #{a_game.year}"
-        puts "Designer(s): #{a_game.designer}"
+        puts "url: #{a_game.url}"
       elsif input == "list"
         list_games
         puts "Not sure what you want."
