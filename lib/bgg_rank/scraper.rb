@@ -11,7 +11,8 @@ class BggRank::Scraper
       name = game_doc.css('.collection_objectname a').text.strip
       url = game_doc.css('.collection_objectname a').attribute('href').value
       url = "https://boardgamegeek.com" + url
-      year = doc.css("#results_objectname1 span").text.strip
+      geek_rating = doc.css('.collection_bggrating')[4].text.strip
+      #year = doc.css("#results_objectname1 span").text.strip
       #designer = "unknown"
       #url = 'http://boardgamegeek.com'
         binding.pry

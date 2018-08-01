@@ -1,5 +1,5 @@
 class BggRank::Game
-  attr_accessor :name, :year, :designer, :url
+  attr_accessor :name, :geek_rating, :designer, :url
 
   @@all = []
 
