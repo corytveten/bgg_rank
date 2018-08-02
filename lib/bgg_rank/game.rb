@@ -1,11 +1,14 @@
 class BggRank::Game
-  attr_accessor :name, :geek_rating, :designer, :url
+  attr_accessor :name, :geek_rating, :url, :year
 
   @@all = []
 
-  def initialize(name, url)
+  def initialize(name, url, year, geek_rating)
     @name = name
     @url = url
+    @year = year
+    @geek_rating = geek_rating
+
     @@all << self
   end
 

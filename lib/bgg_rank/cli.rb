@@ -44,6 +44,7 @@ class BggRank::CLI
         BggRank::Scraper.scrape_details(a_game)
 
         puts "Title: #{a_game.name}"
+        puts "Publication Year: #{a_game.year}"
         puts "Geek Rating: #{a_game.geek_rating}"
         puts "url: #{a_game.url}"
       elsif input == "list"
