@@ -1,8 +1,6 @@
 # BggRank
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/bgg_rank`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem displays a list of the current top ten board games according to boardgamegeek.com. It also provides further information on each game, including year of publication, average rating, and the URL of the game's BGG webpage.
 
 ## Installation
 
@@ -22,7 +20,16 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To run this program in Ruby:
+require 'bgg_rank'
+
+Then, in terminal type:
+cd bgg_rank
+ruby bin/bgg_rank
+
+A list of the current top ten board games will be displayed. The ranking and ratings come from the website Boardgamegeek.com.
+Type the number of the game to get more information.
+Type exit to exit the program.
 
 ## Development
 
