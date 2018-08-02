@@ -39,17 +39,17 @@ class BggRank::CLI
       input = gets.strip.downcase
 
       if input.to_i > 0
-        a_game = BggRank::Game.all[input.to_i-1]
+        new_game = BggRank::Game.all[input.to_i-1]
         #binding.pry
-        BggRank::Scraper.scrape_details(a_game)
+        #BggRank::Scraper.scrape_details(a_game)
 
-        puts "Title: #{a_game.name}"
-        puts "Publication Year: #{a_game.year}"
-        puts "Geek Rating: #{a_game.geek_rating}"
-        puts "url: #{a_game.url}"
+        puts "Title: #{new_game.name}"
+        puts "Publication Year: #{new_game.year}"
+        puts "Geek Rating: #{new_game.geek_rating}"
+        puts "URL: #{new_game.url}"
       elsif input == "list"
         list_games
-        puts "Not sure what you want."
+        #puts "Not sure what you want."
       end
     end
   end
