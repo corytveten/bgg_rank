@@ -12,23 +12,15 @@ class BggRank::Scraper
       url = game_doc.css('.collection_objectname a').attribute('href').value
       url = "https://boardgamegeek.com" + url
       year = game_doc.css('.smallerfont').text.strip
-      geek_rating = game_doc.css('.collection_bggrating').text.strip
+      rating = game_doc.css('.collection_bggrating').text.strip[0..4]
       #year = doc.css("#results_objectname1 span").text.strip
       #designer = "unknown"
       #url = 'http://boardgamegeek.com'
-      #  binding.pry
-      BggRank::Game.new(name, url, year, geek_rating)
+        #binding.pry
+      BggRank::Game.new(name, url, year, rating)
 
       end
   end
 
-  def self.scrape_details(game)
-    url = game.url
-    doc = Nokogiri::HTML(open(url))
-    #binding.pry
-    #game.year = doc.css('.game-header-title-info span').text.strip
-    #game.designer = doc.css('.credits a').text.strip
-    #doc.css().text.strip
-  end
 
 end

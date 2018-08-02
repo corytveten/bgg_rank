@@ -7,8 +7,8 @@ class BggRank::CLI
   end
 
   def list_games
-    puts "BGG 100"
-    puts ""
+    puts "Boardgamegeek.com Top 10 Games"
+    puts "---------------"
     #@games = BggRank::Scraper.scrape_bgg
     BggRank::Scraper.scrape_bgg
 
@@ -45,8 +45,9 @@ class BggRank::CLI
 
         puts "Title: #{new_game.name}"
         puts "Publication Year: #{new_game.year}"
-        puts "Geek Rating: #{new_game.geek_rating}"
+        puts "Rating: #{new_game.rating}"
         puts "URL: #{new_game.url}"
+        puts ""
       elsif input == "list"
         list_games
         #puts "Not sure what you want."
