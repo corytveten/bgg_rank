@@ -9,23 +9,15 @@ class BggRank::CLI
   def list_games
     puts "Boardgamegeek.com Top 10 Games"
     puts "---------------"
-    #@games = BggRank::Scraper.scrape_bgg
     BggRank::Scraper.scrape_bgg
 
-    #binding.pry
     games = BggRank::Game.all
     games.each.with_index(1) do |game, index|
       if index <= 10
       puts "#{index}. #{game.name}"
     end
     end
-    #@games.each.with_index(1) do |game, i|
-      #puts "#{i}. #{game}"
-    #end
-    #@games = BggRank::Game.scrape_bgg
-    #@games.each.with_index(1) do |game, i|
-    #  puts "#{i}. #{game}"
-    #end
+
   end
 
   def menu
@@ -38,8 +30,7 @@ class BggRank::CLI
 
       if input.to_i > 0 && input.to_i <= 10
         new_game = BggRank::Game.all[input.to_i-1]
-        #binding.pry
-        #BggRank::Scraper.scrape_details(a_game)
+
 
         puts "Title: #{new_game.name}"
         puts "Publication Year: #{new_game.year}"
@@ -48,7 +39,7 @@ class BggRank::CLI
         puts ""
       elsif input == "list"
         list_games[0..9]
-        #puts "Not sure what you want."
+
       end
     end
   end
