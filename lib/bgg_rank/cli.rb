@@ -14,8 +14,8 @@ class BggRank::CLI
     games = BggRank::Game.all
     games.each.with_index(1) do |game, index|
       if index <= 10
-      puts "#{index}. #{game.name}"
-    end
+        puts "#{index}. #{game.name}"
+      end
     end
 
   end
