@@ -30,15 +30,16 @@ class BggRank::CLI
 
       if input.to_i > 0 && input.to_i <= 10
         new_game = BggRank::Game.all[input.to_i-1]
-
+        puts "-----------------------------"
         puts "Title: #{new_game.name}"
         puts "Publication Year: #{new_game.year}"
         puts "Rating: #{new_game.rating}"
         puts "URL: #{new_game.url}"
-        puts ""
-      elsif input == "list"
+        puts "-----------------------------"
+      elsif input == "list" || input == "menu"
         list_games #[0..9]
-
+      elsif input != "exit"
+        puts "Try again"
       end
     end
   end
