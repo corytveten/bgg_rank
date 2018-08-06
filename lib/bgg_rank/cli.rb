@@ -31,14 +31,13 @@ class BggRank::CLI
       if input.to_i > 0 && input.to_i <= 10
         new_game = BggRank::Game.all[input.to_i-1]
 
-
         puts "Title: #{new_game.name}"
         puts "Publication Year: #{new_game.year}"
         puts "Rating: #{new_game.rating}"
         puts "URL: #{new_game.url}"
         puts ""
       elsif input == "list"
-        list_games[0..9]
+        list_games #[0..9]
 
       end
     end
